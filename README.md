@@ -22,4 +22,4 @@ var three = 7 + true + 6 + "8";
 
 var four = false + true;
 	//1, хотя сомневался между "falsetrue" и единицей
-	
+
