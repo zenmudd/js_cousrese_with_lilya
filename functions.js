@@ -83,7 +83,8 @@ function isPrime (num){
 
 function countPrimesSumInRange(numb)
 {
-	if (typeof(numb)!= "number" && numb > 0) return "sorry bro, it's not a number";
+	if (typeof(numb)!= "number") return "sorry bro, it's not a number";
+	else if (numb <= 0) return "the number is lower or equals to zero";
 	else
 	{
 		var primesSum = 0;
