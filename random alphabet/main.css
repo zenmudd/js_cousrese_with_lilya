@@ -1,0 +1,10 @@
+table, tr {
+    border: 1px solid black;
+    background-color: red;
+}
+
+td {
+	height: 50px;
+    width: 50px;
+    background-color: yellow;
+}
