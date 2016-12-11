@@ -109,7 +109,7 @@ function sumOfPoweredNumberDigits(number, power)
 	//создать проверку power на корректность
 	for(var i = 1; i < power; i++)
 	{
-		poweredResult += poweredResult * poweredResult;
+		poweredResult += poweredResult * number;
 	}
 	String(poweredResult);
 	sumOfPoweredNumberDigitsLength = poweredResult.length;
