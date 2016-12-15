@@ -96,3 +96,31 @@ console.log(countPrimesSumInRange(2000));
 //215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
 //What is the sum of the digits of the number 21000?
 		//no idea what this means
+//2^15 = 32768;
+//2^1000;
+
+function sumOfPoweredNumberDigits(number, power)
+{
+	var poweredResult = number;
+	var sumOfPoweredNumberDigits;
+	var sumOfPoweredNumberDigitsLength;
+
+	//создать проверку number на корректность
+	//создать проверку power на корректность
+	for(var i = 1; i < power; i++)
+	{
+		poweredResult += poweredResult * number;
+	}
+	String(poweredResult);
+	sumOfPoweredNumberDigitsLength = poweredResult.length;
+
+	for(var j = 1; j < sumOfPoweredNumberDigitsLength; j++)
+	{
+		sumOfPoweredNumberDigits += poweredResult[i];
+	}
+
+	return poweredResult;
+}
+
+var printedResult = '<h4>' + sumOfPoweredNumberDigits(prompt('give me the number to power'), prompt('give ne the power value')) + '</h4>';
+document.write(printedResult);
