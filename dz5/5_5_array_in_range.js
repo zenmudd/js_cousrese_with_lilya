@@ -1,9 +1,9 @@
 function createRangeArrayWithNumbers(from, to, interval) {
-    if (from<to)
+    if (from < to)
     {		
 	    var arr = [];
 
-	    for(var i = 0; from<=to; i++, from += interval)
+	    for(var i = 0; from <= to; i++, from += interval)
 	    {
 	    	arr.push(from);
 	    }
