@@ -13,7 +13,7 @@ function factorial(num)
 }
 
 //if (factorialNumber == "NaN") document.write('inputed value is not a number, sorry');
-// *** проверить значение
+// *** проверить приходязее из промпта значение на число 
 
 if (factorialNumber === 1 || factorialNumber == 2)
 {
