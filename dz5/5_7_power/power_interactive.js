@@ -4,11 +4,11 @@ var printresult;
 
 function power(num, pow)
 {
-	if(pow>1) return num * power(num, pow-1);
+	if(pow > 1) return num * power(num, pow-1);
 	else return num;
 }
 
-//надо сравнить зщначение на не число
+//надо проверить значение на не число
 if (numPrompted == 0) 
 {
 	printresult = 'Any power of zero makes no sence';
