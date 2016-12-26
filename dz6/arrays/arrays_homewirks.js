@@ -95,7 +95,7 @@ var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 */
 var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 arr = arr.reverse();
-arr = arr.split(', ');
+arr = arr.join(', ');
 
 
 
