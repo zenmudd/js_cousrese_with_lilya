@@ -47,7 +47,7 @@ function isPal(string)
 	    //console.log(j, strLen - 1 - j, strLen)
 	    //console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
 	    //console.log(result, j);
-		if(stringJoined[j] !== string[strLen - 1 - j]) result = false;
+		if(stringJoined[j] !== stringJoined[strLen - 1 - j]) result = false;
 	}
 	return result;
 }
