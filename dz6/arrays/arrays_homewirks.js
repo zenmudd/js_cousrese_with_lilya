@@ -28,7 +28,6 @@ console.log(isPal('123212')); //false
 
 function isPal(string)
 {	
-	var string = 'А роза упала на лапу Азора';
 	var result = true;
 	var stringCopy = [];
 	var stringJoined;
