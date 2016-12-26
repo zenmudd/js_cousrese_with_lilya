@@ -45,11 +45,11 @@ function isPal(string)
 	//create the c
 	for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
 	{
-	    console.log(j, strLen - 1 - j, strLen)
-	    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-	    console.log(result, j);
+	    //console.log(j, strLen - 1 - j, strLen)
+	    //console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
+	    //console.log(result, j);
 
-		if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
+		if(stringJoined[j] !== stringJoined[strLen - 1 - j])	result = false;
 		
 	}
 	return result;
