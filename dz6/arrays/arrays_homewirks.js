@@ -27,28 +27,6 @@ console.log(isPal('123212')); //false
 */
 
 function isPal(string)
-{
-	var result = true;
-
-	for(var i = 0, strLen = string.length, lastCharIndex = strLen - 1 - i; i < strLen, result == true; i++)
-	{
-		if(string[i] !== string[lastCharIndex]) result = false;
-	}
-	return result;
-}
-alert(isPal('Anna')); // true
-alert(isPal('А роза упала на лапу Азора')); //true
-alert(isPal('Вася')); //false
-alert(isPal('12321')); //true
-alert(isPal('123212')); //false
-
-
-
-
-
-
-
-function isPal(string)
 {	
 	var result;
 	var stringCopy = [];
@@ -86,37 +64,6 @@ console.log(isPal('123212')); //false
 //никак вернуть false усли условие не соблюдено
 //и не могу понять почему вообще эта строка отрабатывает если ее условие не выполнено
 
-
-
-
-
-
-
-
-var string = 'А роза упала на лапу Азора';
-var result = true;
-var stringCopy = [];
-var stringJoined;
-// create trhe string without spaces and capitals;
-for(var i = 0, strLen = string.length; i < strLen; i ++)
-{
-	if(string[i] !== ' ') stringCopy.push(string[i]);
-}
-
-stringJoined = stringCopy.join('');
-stringJoined = stringJoined.toLowerCase();
-//console.log(stringJoined);
-
-//create the c
-for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
-{
-    console.log(j, strLen - 1 - j, strLen)
-    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-    console.log(result, j);
-
-	if(stringJoined[j] == string[strLen - 1 - j])	result = false;
-	
-}
 
 
 
