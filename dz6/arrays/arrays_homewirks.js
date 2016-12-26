@@ -28,7 +28,8 @@ console.log(isPal('123212')); //false
 
 function isPal(string)
 {	
-	var result;
+	var string = 'А роза упала на лапу Азора';
+	var result = true;
 	var stringCopy = [];
 	var stringJoined;
 	// create trhe string without spaces and capitals;
@@ -36,21 +37,24 @@ function isPal(string)
 	{
 		if(string[i] !== ' ') stringCopy.push(string[i]);
 	}
-	
+
 	stringJoined = stringCopy.join('');
 	stringJoined = stringJoined.toLowerCase();
 	//console.log(stringJoined);
 
 	//create the c
-	for(var j = 0, strLen = stringJoined.length; j < strLen; j++)
+	for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
 	{
-	    //console.log(j, strLen - 1 - j, strLen)
-	    //console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-	    //console.log(result, j);
-		if(stringJoined[j] !== stringJoined[strLen - 1 - j]) result = false;
+	    console.log(j, strLen - 1 - j, strLen)
+	    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
+	    console.log(result, j);
+
+		if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
+		
 	}
 	return result;
 }
+
 
 console.log(isPal('А роза упала на лапу Азора')); //true
 console.log(isPal('Anna')); // true
