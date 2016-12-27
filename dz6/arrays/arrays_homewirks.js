@@ -50,7 +50,8 @@ alert(isPal('123212')); //false
 
 function isPal(string)
 {	
-	var result;
+	var string = 'А роза упала на лапу Азора';
+	var result = true;
 	var stringCopy = [];
 	var stringJoined;
 	// create trhe string without spaces and capitals;
@@ -58,18 +59,20 @@ function isPal(string)
 	{
 		if(string[i] !== ' ') stringCopy.push(string[i]);
 	}
-	
+
 	stringJoined = stringCopy.join('');
 	stringJoined = stringJoined.toLowerCase();
 	//console.log(stringJoined);
 
 	//create the c
-	for(var j = 0, strLen = stringJoined.length; j < strLen; j++)
+	for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
 	{
-	    //console.log(j, strLen - 1 - j, strLen)
-	    //console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-	    //console.log(result, j);
-		if(stringJoined[j] !== string[strLen - 1 - j]) result = false;
+	    console.log(j, strLen - 1 - j, strLen)
+	    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
+	    console.log(result, j);
+
+		if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
+		
 	}
 	return result;
 }
@@ -114,7 +117,7 @@ for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
     console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
     console.log(result, j);
 
-	if(stringJoined[j] == string[strLen - 1 - j])	result = false;
+	if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
 	
 }
 
@@ -133,6 +136,48 @@ var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', '
 
 console.log( anClean(arr) ); // 'воз,киборг,корсет' или 'ЗОВ,гробик,сектор'
 */
+var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+
+function anClean(arr)
+{
+	arrLen = arr.length;
+	var arrPrepared = [];
+	var arrISorted;
+	var valuesAnnogramed = [];
+
+	//getting the new array with all lower ases
+	for(var i = 0; i < arrLen; i++)
+	{
+		arrPrepared.push(arr[i].toLowerCase());
+	}
+	
+	//splitting all stings to arrays new prepared array
+	for(var j = 0; j < arrLen; j++)
+	{
+		arrPrepared[j] = arrPrepared[j].split('');
+	}
+	//console.log(arrPrepared);
+
+	//sorting the values inside the arrays of new prepaed array
+	for(var k = 0; k < arrLen; k++)
+	{
+		arrPrepared[k] = arrPrepared[k].sort();
+	}
+	
+	//comparring the enties and getting the annogrammed pairs
+	for(var l = 0; l < arrLen; l++)
+	{
+		
+	}
+	
+}
+
+anClean(arr);
+
+
+
+
+
 
 
 /*
