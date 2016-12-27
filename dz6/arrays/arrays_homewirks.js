@@ -40,6 +40,7 @@ function isPal(string)
 	{
 		if(string[i] !== ' ') stringCopy.push(string[i]);
 	}
+<<<<<<< HEAD
 
 	//make 'stringCopy' become a string, and without upperCases
 	stringCopy = stringCopy.join('');
@@ -49,11 +50,31 @@ function isPal(string)
 	for(var j = 0, strLen = stringCopy.length; j < strLen && result == true; j++)
 	{
 	    if(stringCopy[j] !== stringCopy[strLen - 1 - j])	result = false;
+=======
+
+	stringJoined = stringCopy.join('');
+	stringJoined = stringJoined.toLowerCase();
+	//console.log(stringJoined);
+
+	//create the c
+	for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
+	{
+	    //console.log(j, strLen - 1 - j, strLen)
+	    //console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
+	    //console.log(result, j);
+
+		if(stringJoined[j] !== stringJoined[strLen - 1 - j])	result = false;
+>>>>>>> 75e354242bdba1da2d6e3a88b20ac8dbb4187863
 		
 	}
 	return result;
 }
 
+<<<<<<< HEAD
+=======
+
+console.log(isPal('А роза упала на лапу Азора')); //true
+>>>>>>> 75e354242bdba1da2d6e3a88b20ac8dbb4187863
 console.log(isPal('Anna')); // true
 console.log(isPal('А роза упала на лапу Азора')); //true
 console.log(isPal('Вася')); //false
@@ -61,6 +82,16 @@ console.log(isPal('12321')); //true
 console.log(isPal('123212')); //false
 
 
+<<<<<<< HEAD
+=======
+//почему то возвразает всегда false
+//если закоментировать строку if(stringJoined[j] !== string[strLen - 1 - j]) result = false; - тогда работает, но Я не могу тогда
+//никак вернуть false усли условие не соблюдено
+//и не могу понять почему вообще эта строка отрабатывает если ее условие не выполнено
+
+
+
+>>>>>>> 75e354242bdba1da2d6e3a88b20ac8dbb4187863
 
 /*
 3 задание
@@ -153,7 +184,7 @@ var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 
 var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 arr = arr.reverse();
-arr = arr.split(', ');
+arr = arr.join(', ');
 
 
 
