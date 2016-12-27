@@ -5,11 +5,15 @@
 
 var arr = ["у", "м", "а", "р", " ", "а", "л", "ы", "м", 5, " ", "а", "м", "а", "М", 1];
 */
+
 var arr = ["у", "м", "а", "р", " ", "а", "л", "ы", "м", 5, " ", "а", "м", "а", "М", 1];
 arr.reverse().shift();
 arr.splice(5,1);
 arr.join('');
 arr;
+
+
+
 /*
 2 задание
 
@@ -27,99 +31,34 @@ console.log(isPal('123212')); //false
 */
 
 function isPal(string)
-{
-	var result = true;
-
-	for(var i = 0, strLen = string.length, lastCharIndex = strLen - 1 - i; i < strLen, result == true; i++)
-	{
-		if(string[i] !== string[lastCharIndex]) result = false;
-	}
-	return result;
-}
-alert(isPal('Anna')); // true
-alert(isPal('А роза упала на лапу Азора')); //true
-alert(isPal('Вася')); //false
-alert(isPal('12321')); //true
-alert(isPal('123212')); //false
-
-
-
-
-
-
-
-function isPal(string)
 {	
-	var string = 'А роза упала на лапу Азора';
 	var result = true;
 	var stringCopy = [];
-	var stringJoined;
-	// create trhe string without spaces and capitals;
+
+	// make a copy of 'string' as array, but without spaces;
 	for(var i = 0, strLen = string.length; i < strLen; i ++)
 	{
 		if(string[i] !== ' ') stringCopy.push(string[i]);
 	}
 
-	stringJoined = stringCopy.join('');
-	stringJoined = stringJoined.toLowerCase();
-	//console.log(stringJoined);
-
-	//create the c
-	for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
+	//make 'stringCopy' become a string, and without upperCases
+	stringCopy = stringCopy.join('');
+	stringCopy = stringCopy.toLowerCase();
+	
+	//checking if prepared 'stringCopy' is an annogram
+	for(var j = 0, strLen = stringCopy.length; j < strLen && result == true; j++)
 	{
-	    console.log(j, strLen - 1 - j, strLen)
-	    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-	    console.log(result, j);
-
-		if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
+	    if(stringCopy[j] !== stringCopy[strLen - 1 - j])	result = false;
 		
 	}
 	return result;
 }
 
-console.log(isPal('А роза упала на лапу Азора')); //true
 console.log(isPal('Anna')); // true
+console.log(isPal('А роза упала на лапу Азора')); //true
 console.log(isPal('Вася')); //false
 console.log(isPal('12321')); //true
 console.log(isPal('123212')); //false
-
-
-//почему то возвразает всегда false
-//если закоментировать строку if(stringJoined[j] !== string[strLen - 1 - j]) result = false; - тогда работает, но Я не могу тогда
-//никак вернуть false усли условие не соблюдено
-//и не могу понять почему вообще эта строка отрабатывает если ее условие не выполнено
-
-
-
-
-
-
-
-
-var string = 'А роза упала на лапу Азора';
-var result = true;
-var stringCopy = [];
-var stringJoined;
-// create trhe string without spaces and capitals;
-for(var i = 0, strLen = string.length; i < strLen; i ++)
-{
-	if(string[i] !== ' ') stringCopy.push(string[i]);
-}
-
-stringJoined = stringCopy.join('');
-stringJoined = stringJoined.toLowerCase();
-//console.log(stringJoined);
-
-//create the c
-for(var j = 0, strLen = stringJoined.length; j < strLen && result == true; j++)
-{
-    console.log(j, strLen - 1 - j, strLen)
-    console.log(stringJoined[j] + ' <> ' +  stringJoined[strLen - 1 - j]);
-    console.log(result, j);
-
-	if(stringJoined[j] == stringJoined[strLen - 1 - j])	result = false;
-	
-}
 
 
 
@@ -136,6 +75,7 @@ var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', '
 
 console.log( anClean(arr) ); // 'воз,киборг,корсет' или 'ЗОВ,гробик,сектор'
 */
+
 var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
 
 function anClean(arr)
@@ -144,6 +84,9 @@ function anClean(arr)
 	var arrPrepared = [];
 	var arrISorted;
 	var valuesAnnogramed = [];
+	var annogrammedString = '';
+	var annogrammedStringLeft = '';
+	var annogrammedStringRight = '';
 
 	//getting the new array with all lower ases
 	for(var i = 0; i < arrLen; i++)
@@ -151,32 +94,51 @@ function anClean(arr)
 		arrPrepared.push(arr[i].toLowerCase());
 	}
 	
-	//splitting all stings to arrays new prepared array
+	//splitting all strings to arrays in new prepared array
 	for(var j = 0; j < arrLen; j++)
 	{
 		arrPrepared[j] = arrPrepared[j].split('');
 	}
-	//console.log(arrPrepared);
-
+	
 	//sorting the values inside the arrays of new prepaed array
+	//and join them back together
 	for(var k = 0; k < arrLen; k++)
 	{
 		arrPrepared[k] = arrPrepared[k].sort();
+		arrPrepared[k] = arrPrepared[k].join('');
 	}
 	
-	//comparring the enties and getting the annogrammed pairs
+	//comparring the entries and getting the annogrammed pairs
 	for(var l = 0; l < arrLen; l++)
 	{
-		
+		for(var m = l+1; m < arrLen; m++)
+		{
+			if (arrPrepared[l] == arrPrepared[m]) valuesAnnogramed.push([l, m]);
+			//what to do if values are repeated over 2 times?
+		}
 	}
-	
+
+	//creating the string of compared values
+	for(var n = 0, valAnnogrLen = valuesAnnogramed.length; n < valAnnogrLen; n++)
+	{	
+		//если элемент последний - запятая в конце не нужна
+		if (n == valAnnogrLen - 1)
+		{
+			annogrammedStringLeft += arr[valuesAnnogramed[n][0]];
+			annogrammedStringRight += arr[valuesAnnogramed[n][1]];
+		}
+		else
+		{
+			annogrammedStringLeft += arr[valuesAnnogramed[n][0]] + ', ';
+			annogrammedStringRight += arr[valuesAnnogramed[n][1]] + ', ';
+		}
+	}
+
+	annogrammedString = annogrammedStringLeft + ' = ' + annogrammedStringRight;
+	return annogrammedString;
 }
 
 anClean(arr);
-
-
-
-
 
 
 
@@ -188,6 +150,7 @@ anClean(arr);
 
 var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 */
+
 var arr = [ 'rrrA', 'toboR', 'ekiL', 'dooG', 'esoR' ];
 arr = arr.reverse();
 arr = arr.split(', ');
@@ -204,9 +167,6 @@ for (var i = 1; i<=100; i++)
 {
 	sum += i;
 }
-
-
-
 
 
 
@@ -231,7 +191,47 @@ for (var i = 1; i<=100; i++)
 (вывод ошибки в консоль осуществялется через console.error("Тут текст ошибки") )
 */
 
+function callMe(val1, val2, val3)
+{
+	var result;
 
+	//check if val1 is a number
+	for(var i = 0, val1Len = val1.length; i < val1Len; i++)
+	{
+		if(val1[i] != +val1[i])
+		{
+			console.error('Value #1 is not a number');
+			return null;
+		}
+	}
+
+	//check if val2 is a number
+	for(var j = 0, val2Len = val2.length; j < val2Len; j++)
+	{
+		if(val2[j] != +val2[j])
+		{
+			console.error('Value #2 is not a number');
+			return null;
+		}
+	}
+
+	//check if val3 is a number
+	for(var k = 0, val3Len = val3.length; k < val3Len; k++)
+	{
+		if(val3[k] != +val3[k])
+		{
+			console.error('Value #3 is not a number');
+			return null;
+		}
+	}
+	result = +val1 + +val2 + +val3;
+	return result;
+}
+
+alert(callMe(prompt('Enter value #1'), prompt('Enter value #2'), prompt('Enter value #3')));
+//консолька выдает только первое перправильное вхождение
+//если надо - без проблем могу написать так чтобы консолька проверяла все
+//но тогда потеряется изящьность с return null - катапульта из фунцкии
 
 
 
@@ -240,8 +240,16 @@ for (var i = 1; i<=100; i++)
 
 Напишите функцию callMeAgain которая будет принимать 1 аргумент, который будет массивом. 
 Она должна возвращать массив соедененный через запятые и отсортированный по алфавиту (Array.join(','));
-
-
-
-
 */
+
+function callMeAgain(array)
+{
+	//check if intered data is an array
+	if(Array.isArray[array]) return 'you data is not an array';
+
+	array.sort();
+	array = array.join(', ');
+	return array;
+}
+
+console.log(callMeAgain([a,t,d,g,r,s,d,g,]));
